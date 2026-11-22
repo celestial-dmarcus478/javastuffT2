@@ -5,7 +5,6 @@ public class W3A1Celestial {
 public static void main( String[] args ) {
         try (FileWriter writer = new FileWriter("Firstname.txt")) {
            writer.write("Welcome to JAVA fILE hANDLING!");
-          
                 System.out.println("Text successfully written.");
             } catch (IOException e) {
                    System.out.println("Error writing to file.");
