@@ -1,0 +1,54 @@
+import java.util.Scanner;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+public class W3E1Celestial {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+//while true{
+	System.out.println("====Student records checker=====");	
+	System.out.println("1. Add a student record");
+	System.out.println("2. To view student records");
+	System.out.println("3. To Exit");
+	int choice = sc.nextInt();
+	switch (choice)
+	{//ADD RECS
+	case 1:
+		System.out.println("Adding a Record");
+		String nothing = sc.nextLine();
+		System.out.println("Enter their Student Number: ");
+		String celestialstunum = sc.nextLine();
+		System.out.println("Enter their Lastname: ");
+		String celestiallastname= sc.nextLine();
+		System.out.println("Enter their Firstname: ");
+		String celestialfirstname = sc.nextLine();
+		System.out.println("Enter their Course: ");
+		String celestialcourse = sc.nextLine();
+		 try (FileWriter writer = new FileWriter("Studntrecrd.txt",true)) {
+	           writer.write("\n"+celestialstunum+","+celestiallastname+","+celestialfirstname+","+celestialcourse);       
+	           System.out.println("Text successfully written.");
+		 } catch (IOException e) {
+	                   System.out.println("Error writing to file.");
+	         }
+		
+		 break;
+		//View recs
+	case 2:
+		try (FileReader reader = new FileReader("Studntrecrd.txt")) {
+			int ch;
+			while ((ch = reader.read()) != -1) {
+				System.out.print((char) ch);
+				
+			}
+		} catch (IOException e) {
+System.out.println ("Error reading file");
+
+	}
+		break;
+		  default:
+			  System.out.println("Invalid input");
+	}
+			
+//}
+}
+}
