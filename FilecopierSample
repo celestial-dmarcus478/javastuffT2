@@ -1,0 +1,20 @@
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class W3A3Celestial {
+	public static void main(String[] args) {
+		try (
+			FileReader reader = new FileReader("Firstname.txt");
+			FileWriter writer = new FileWriter("copy.txt")
+		){
+			int ch;
+			while ((ch=reader.read()) !=-1) {
+				writer.write(ch);
+			}
+			System.out.println("File copied succsessfully.");
+		} catch (IOException e) {
+			System.out.println("File operation failed.");
+		}
+	}
+}
