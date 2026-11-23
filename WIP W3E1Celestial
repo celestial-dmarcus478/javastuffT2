@@ -1,4 +1,6 @@
+package codestuff;
 import java.util.Scanner;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,7 +11,7 @@ public class W3E1Celestial {
 	System.out.println("====Student records checker=====");	
 	System.out.println("1. Add a student record");
 	System.out.println("2. To view student records");
-	System.out.println("3. To Exit");
+	System.out.println("3. To Search");
 	int choice = sc.nextInt();
 	switch (choice)
 	{//ADD RECS
@@ -44,6 +46,25 @@ public class W3E1Celestial {
 System.out.println ("Error reading file");
 
 	}
+		break;
+	case 3:
+		System.out.println("Search a name: ");
+		String celestialsearch = sc.nextLine();
+		boolean found =false;
+		try (BufferedReader reader = new BufferedReader(new FileReader("Studntrecrd.txt"))) {
+			String line;
+			while ((line = reader.readLine()) != null) {
+				String[] record = line.split(",");
+				if (record.length >= 3 &&
+						record[0].trim().equalsIgnoreCase(searchName.trim())) {
+					System.out.println("STUDENT FOUND");
+					System.out.println("Name: "+record[0].trim());
+					System.out.println("Course: "+record);
+				}
+			}
+				
+		} catch (IOException e) {
+System.out.println ("Error reading file");
 		break;
 		  default:
 			  System.out.println("Invalid input");
