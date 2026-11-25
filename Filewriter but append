@@ -1,0 +1,15 @@
+import java.io.FileWriter;
+import java.io.IOException;
+public class W3A4Celestial {
+
+	public static void main(String[] args) {
+		try (FileWriter writer = new FileWriter("Celestialp4.txt", true)){
+			writer.write("\n Today I learned Filewriter.");
+	            writer.write("today I learned filewriter");          
+	                 System.out.println("new text added.");
+	             } catch (IOException e) {
+	                    System.out.println("unable to update file.");
+	          }
+		}
+
+	}
