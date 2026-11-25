@@ -26,7 +26,7 @@ while (true){
 		String celestialfirstname = sc.nextLine();
 		System.out.println("Enter their Course: ");
 		String celestialcourse = sc.nextLine();
-		 try (FileWriter writer = new FileWriter("Studntrecrd.txt",true)) {
+		 try (FileWriter writer = new FileWriter("Studntrecrd.txt"/**/,true)) {
 	           writer.write("\n"+celestialstunum+","+celestiallastname+","+celestialfirstname+","+celestialcourse);       
 	           System.out.println("Text successfully written.");
 		 } catch (IOException e) {
@@ -48,17 +48,18 @@ System.out.println ("Error reading file");
 	}
 		break;
 //RECORD FINDER
-	/*case 3:
-		System.out.println("Search a name: ");
-		String celestialsearch = sc.nextLine();
-		boolean found =false;
+	case 3:
+/*		System.out.print("Enter student name to search: ");
+		String searchname = input.nextLine();
+		boolean found = false;
+		
 		try (BufferedReader reader = new BufferedReader(new FileReader("Studntrecrd.txt"))) {
 			String line;
 			while ((line = reader.readLine()) != null) {
 				String[] record = line.split(",");
 				if (record.length >= 3 &&
 						record[0].trim().equalsIgnoreCase(searchName.trim())) {
-					System.out.println("STUDENT FOUND");
+					System.out.println("\tSTUDENT FOUND");
 					System.out.println("Name: "+record[0].trim());
 					System.out.println("Course: "+record[1].trim());
 					System.out.println("Year Level: "+record[2].trim());
@@ -73,17 +74,20 @@ System.out.println ("Error reading file");
 System.out.println ("FIle error: "+e.getMessage());
 		}
 		input.close();
+		
 		break;*/
 		  default:
 			  System.out.println("Invalid input");
 			  	}
-System.out.println("\nDo you want to go again?");
+System.out.println("\nDo you want Continue this program?");
 String nothing = sc.nextLine();
 	System.out.print("(Y/N): ");
 	String celestialagain = sc.nextLine();
-if (celestialagain != "Y") {
+if (celestialagain.toUpperCase().equals ("Y")) 
+	continue;
+	else if (celestialagain.toUpperCase().equals ("N"))
 		System.out.println("Program ended");
-		break;}
+		break;
 }
 
 }
