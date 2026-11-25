@@ -15,7 +15,8 @@ while (true){
 	int choice = sc.nextInt();
 	switch (choice)
 	{//ADD RECS
-	case 1:
+	case 1: 
+		try (FileWriter writer = new FileWriter("Studntrecrd.txt"/**/,true)) {
 		System.out.println("Adding a Record");
 		String nothing = sc.nextLine();
 		System.out.println("Enter their Student Number: ");
@@ -25,8 +26,7 @@ while (true){
 		System.out.println("Enter their Firstname: ");
 		String celestialfirstname = sc.nextLine();
 		System.out.println("Enter their Course: ");
-		String celestialcourse = sc.nextLine();
-		 try (FileWriter writer = new FileWriter("Studntrecrd.txt"/**/,true)) {
+		String celestialcourse = sc.nextLine();		
 	           writer.write("\n"+celestialstunum+","+celestiallastname+","+celestialfirstname+","+celestialcourse);       
 	           System.out.println("Text successfully written.");
 		 } catch (IOException e) {
@@ -34,7 +34,7 @@ while (true){
 	         }
 		
 		 break;
-		//View recs
+		//VIEW RECS
 	case 2:
 		try (FileReader reader = new FileReader("Studntrecrd.txt")) {
 			int ch;
@@ -49,9 +49,9 @@ System.out.println ("Error reading file");
 		break;
 //RECORD FINDER
 	case 3:
-/*		System.out.print("Enter student name to search: ");
-		String searchname = input.nextLine();
-		boolean found = false;
+/**/		System.out.print("Enter student name to search: ");
+		String searchname = sc.nextLine();
+		boolean Celestialfound = false;
 		
 		try (BufferedReader reader = new BufferedReader(new FileReader("Studntrecrd.txt"))) {
 			String line;
@@ -63,19 +63,18 @@ System.out.println ("Error reading file");
 					System.out.println("Name: "+record[0].trim());
 					System.out.println("Course: "+record[1].trim());
 					System.out.println("Year Level: "+record[2].trim());
-					found=true;
+					Celestialfound=true;
 				}
 			}
-			if (!found) {
+			if (!Celestialfound) {
 				System.out.println ("\n Student Record not found.");
 			}
 				
 		} catch (IOException e) {
 System.out.println ("FIle error: "+e.getMessage());
 		}
-		input.close();
-		
-		break;*/
+		sc.close();
+		break;
 		  default:
 			  System.out.println("Invalid input");
 			  	}
