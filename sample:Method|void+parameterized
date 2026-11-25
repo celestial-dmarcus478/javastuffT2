@@ -1,0 +1,11 @@
+//Received input, performs task, does not return value
+public class test{
+static void displayStudent (String name, int yearLevel) {
+System.out.println("Student: "+ name);
+System.out.println("Year level: "+ yearLevel);
+}
+public static void main(String[] args) {
+displayStudent("Alex", 2);
+displayStudent("Jamie", 1);
+}
+}
