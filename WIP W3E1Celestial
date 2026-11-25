@@ -12,6 +12,7 @@ while (true){
 	System.out.println("1. Add a student record");
 	System.out.println("2. To view student records");
 	System.out.println("3. To Search");
+	System.out.println("4. Quit");
 	int choice = sc.nextInt();
 	switch (choice)
 	{//ADD RECS
@@ -43,13 +44,14 @@ while (true){
 				
 			}
 		} catch (IOException e) {
-System.out.println ("Error reading file");
+			System.out.println ("Error reading file");
 
 	}
 		break;
 //RECORD FINDER
 	case 3:
-/**/		System.out.print("Enter student name to search: ");
+		sc.nextLine();
+		System.out.print("Enter student name to search: ");
 		String searchname = sc.nextLine();
 		boolean Celestialfound = false;
 		
@@ -57,13 +59,17 @@ System.out.println ("Error reading file");
 			String line;
 			while ((line = reader.readLine()) != null) {
 				String[] record = line.split(",");
-				if (record.length >= 3 &&
-						record[0].trim().equalsIgnoreCase(searchName.trim())) {
+				if (record.length >= 3) {
+					if (record[1].trim().equalsIgnoreCase(searchname) ||
+						record[2].trim().equalsIgnoreCase(searchname)) {
 					System.out.println("\tSTUDENT FOUND");
-					System.out.println("Name: "+record[0].trim());
-					System.out.println("Course: "+record[1].trim());
-					System.out.println("Year Level: "+record[2].trim());
+					System.out.println("Student Number: "+record[0].trim());
+					System.out.println("Last Name: "+record[1].trim());
+					System.out.println("First Name: "+record[2].trim());
+					System.out.println("Course: "+record[3].trim());
 					Celestialfound=true;
+				}
+						
 				}
 			}
 			if (!Celestialfound) {
@@ -73,21 +79,27 @@ System.out.println ("Error reading file");
 		} catch (IOException e) {
 System.out.println ("FIle error: "+e.getMessage());
 		}
-		sc.close();
+
 		break;
+	case 4:
+		//QUIT
+		System.out.println("Program ended");
+		sc.close();
+		return;
 		  default:
 			  System.out.println("Invalid input");
+			  break;
 			  	}
-System.out.println("\nDo you want Continue this program?");
-String nothing = sc.nextLine();
-	System.out.print("(Y/N): ");
+	System.out.println("\n\nContinue using this program?(Y/N): ");
+	String nothing = sc.nextLine();
 	String celestialagain = sc.nextLine();
-if (celestialagain.toUpperCase().equals ("Y")) 
-	continue;
-	else if (celestialagain.toUpperCase().equals ("N"))
+	if (celestialagain.equalsIgnoreCase ("Y")) { 
+		continue;
+	} else if (celestialagain.equalsIgnoreCase ("N")) {
 		System.out.println("Program ended");
 		break;
-}
+	}
+	}
 
 }
 }
