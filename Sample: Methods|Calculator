@@ -1,9 +1,10 @@
 import java.util.Scanner;
 public class W4A1Celestial {
-	
-	static void CelestialAddition(int a, int b) {
+	//name the methods for operations
+	static void /*name for the method*/CelestialAddition(/*declare stuff here*/int a, int b) {
 		System.out.println(a+b);}
 	static void CelestialDivision(int g, int h) {
+		//Used different values here cuz you cant use brackets in switch case
 		System.out.println(g/h);}
 	static void CelestialMultiplication(int e, int f) {
 		System.out.println(e*f);}
@@ -17,13 +18,15 @@ public class W4A1Celestial {
 	System.out.println("c) Multiplication");
 	System.out.println("d) Division");
 	String choice = input.nextLine();
+	//the methods are used here
 	switch (choice) {
 	case "a":
 		System.out.println("Value for num1: ");
 		int a = input.nextInt();
 		System.out.println("Value for num2: ");
 		int b = input.nextInt();
-		CelestialAddition( a, b);
+		// the two values will be solved with the assigned method:(arithmeticoperator)
+		CelestialAddition(a,b);
 		break;
 	case "b":
 		System.out.println("Value for num1: ");
@@ -47,6 +50,5 @@ public class W4A1Celestial {
 		CelestialDivision( g, h);
 		break;
 	}
-
 }
 }
