@@ -1,0 +1,52 @@
+import java.util.Scanner;
+public class W4A1Celestial {
+	
+	static void CelestialAddition(int a, int b) {
+		System.out.println(a+b);}
+	static void CelestialDivision(int g, int h) {
+		System.out.println(g/h);}
+	static void CelestialMultiplication(int e, int f) {
+		System.out.println(e*f);}
+	static void CelestialSubtraction(int c, int d) {
+		System.out.println(c-d);}
+	public static void main(String[]args) {
+		 Scanner input = new Scanner(System.in);
+		 System.out.println("Select arithmetic");
+	System.out.println("a) Addition");
+	System.out.println("b) Subtraction");
+	System.out.println("c) Multiplication");
+	System.out.println("d) Division");
+	String choice = input.nextLine();
+	switch (choice) {
+	case "a":
+		System.out.println("Value for num1: ");
+		int a = input.nextInt();
+		System.out.println("Value for num2: ");
+		int b = input.nextInt();
+		CelestialAddition( a, b);
+		break;
+	case "b":
+		System.out.println("Value for num1: ");
+		int c = input.nextInt();
+		System.out.println("Value for num2: ");
+		int d = input.nextInt();
+		CelestialSubtraction(c,d);
+		break;
+	case "c":
+		System.out.println("Value for num1: ");
+		int e = input.nextInt();
+		System.out.println("Value for num2: ");
+		int f = input.nextInt();
+		CelestialMultiplication( e, f);
+		break;
+	case "d":
+		System.out.println("Value for num1: ");
+		int g = input.nextInt();
+		System.out.println("Value for num2: ");
+		int h = input.nextInt();
+		CelestialDivision( g, h);
+		break;
+	}
+
+}
+}
